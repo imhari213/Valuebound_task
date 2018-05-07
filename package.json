@@ -1,0 +1,24 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "dom-parser": "^0.1.5",
+    "express": "*",
+    "fs": "0.0.1-security",
+    "google-oauth-jwt": "^0.2.0",
+    "googleapis": "^29.0.0",
+    "htmlparser": "^1.7.7",
+    "jsdom": "^11.8.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^5.0.17",
+    "readline": "^1.3.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
