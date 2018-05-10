@@ -176,27 +176,8 @@ function readDocFile(auth, fileId) {
             console.log(ins[n].sentence);
           }
 
-          //  dbs.collection("demo").findOne({ "sentence" : "Significant differences begin to appear only when we cross the threshold of 150 individuals,"}).then(function(doc) {
-          //    if(!doc)
-          //      throw new Error('No record found.');
-          //   console.log(doc);//else case
-          // });
- 
-             // var cursor = dbs.collection('demo').find();
-
-             //    // Execute the each command, triggers for each document
-             //    cursor.each(function(err, item) {
-             // // If the item is null then the cursor is exhausted/empty and closed
-             //  if(item == null) {
-             //    console.log("null"); // you may not want to close the DB if you have more code....
-             // return;
-             // }
-             //    // otherwise, do something with the item
-             //       });updateMany(ins, {upsert: true,safe: false}
-
-
            console.log("____________________"); 
-          dbs.collection("test").updateMany(ins, {upsert: true},(err,dat)=>{
+          dbs.collection("test").insertMany(ins,(err,dat)=>{
             if(err){
               console.log(err);
             }
@@ -207,11 +188,6 @@ function readDocFile(auth, fileId) {
           });
 
          
-
-
-         
-       //
-         //   console.log(data.config.data);
             console.log("DONE");
             process.exit(0);
           });
