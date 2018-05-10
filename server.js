@@ -13,9 +13,11 @@ const TOKEN_PATH = 'credentials.json';
 //var db = require('./schema/sentences');
  var arr = [];
 let values = [];
+
+var ins = [];
 var url = "mongodb://localhost:27017/hariprasad";
 var MongoClient = require('mongodb').MongoClient;
-
+var data;
 
 
 
@@ -157,26 +159,57 @@ function readDocFile(auth, fileId) {
            var result = JSON.parse(res);
             // console.log(typeof(result));
            console.log(result);
-        console.log(dbs);
-         console.log("********************");
-         // for(var n=0;n<arr.length;n++){
-          var data = {
-            "sentence" : arr[3]
-          }
+           //console.log(dbs);
+           //console.log(ins);
+           console.log("********************");
+          
+          for(var n=0;n<arr.length;n++){
+           
+           ins.push({
+            "sentence" : arr[n]
+            })
+         
             
-          dbs.collection("demo").insertOne(data,(err,dat)=>{
+          }
+             for(var n=0;n<arr.length;n++){
+              console.log("!!!!!!!!!!!!!!!!!!!!!");
+            console.log(ins[n].sentence);
+          }
+
+          //  dbs.collection("demo").findOne({ "sentence" : "Significant differences begin to appear only when we cross the threshold of 150 individuals,"}).then(function(doc) {
+          //    if(!doc)
+          //      throw new Error('No record found.');
+          //   console.log(doc);//else case
+          // });
+ 
+             // var cursor = dbs.collection('demo').find();
+
+             //    // Execute the each command, triggers for each document
+             //    cursor.each(function(err, item) {
+             // // If the item is null then the cursor is exhausted/empty and closed
+             //  if(item == null) {
+             //    console.log("null"); // you may not want to close the DB if you have more code....
+             // return;
+             // }
+             //    // otherwise, do something with the item
+             //       });updateMany(ins, {upsert: true,safe: false}
+
+
+           console.log("____________________"); 
+          dbs.collection("test").updateMany(ins, {upsert: true},(err,dat)=>{
             if(err){
               console.log(err);
             }
             else{
-            console.log("inserted doc");
-           console.log(arr[n]);
-           console.log("*");
+            
+           console.log("inserted");
             }
           });
 
+         
 
-         //}
+
+         
        //
          //   console.log(data.config.data);
             console.log("DONE");
